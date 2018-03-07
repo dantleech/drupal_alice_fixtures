@@ -1,0 +1,6 @@
+services:
+  dtl_alice_fixtures.console.command:
+    class: Drupal\dtl_alice_fixtures\Command\LoadFixturesCommand
+    tags: 
+        - { name: drupal.command }
+

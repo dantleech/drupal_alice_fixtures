@@ -1,0 +1,6 @@
+name: Drupal Alice Fixtures
+type: module
+core: 8.x
+package: DrupalAliceFixtures
+version: 8.x-0.1
+description: 'Integration of Alice Fixture Generator with Drupal'

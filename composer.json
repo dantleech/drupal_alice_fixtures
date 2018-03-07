@@ -1,0 +1,21 @@
+{
+    "name": "dantleech/drupal-alice-fixtures",
+    "description": "Drupal Integration for Alice fixture generator",
+    "type": "drupal-module",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Daniel Leech",
+            "email": "daniel@dantleech.com"
+        }
+    ],
+    "require": {
+        "nelmio/alice": "^3.0",
+        "drupal/core": "^8.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Drupal\\dtl_alice_fixtures\\": "src/"
+        }
+    }
+}

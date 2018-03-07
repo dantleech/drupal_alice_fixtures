@@ -1,0 +1,6 @@
+php:
+    build: .
+    volumes: 
+        - .:/var/www/html/modules/dtl_alice_fixtures
+    ports:
+        - 8085:80
