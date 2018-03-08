@@ -1,6 +1,8 @@
 Generative Fixtures for Drupal
 ==============================
 
+[![Build Status](https://travis-ci.org/dantleech/drupal-alice-fixtures.svg?branch=master)](https://travis-ci.org/dantleech/drupal-alice-fixtures)
+
 This module will integrate the [Alice](https://github.com/nelmio/alice)
 fixtures generator with Drupal.
 
