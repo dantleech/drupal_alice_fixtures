@@ -9,6 +9,12 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\node\Entity\Node;
 use Nelmio\Alice\Loader\NativeLoader;
 use Drupal\dtl_alice_fixtures\Alice\DrupalLoader;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Finder\Finder;
+use Nelmio\Alice\ObjectSet;
+use Nelmio\Alice\ObjectBag;
+use Nelmio\Alice\ParameterBag;
+use InvalidArgumentException;
 
 class LoadFixturesCommand extends Command
 {
@@ -26,18 +32,53 @@ class LoadFixturesCommand extends Command
     protected function configure()
     {
         $this->setName('alice:load-fixtures');
+        $this->addArgument('path', InputArgument::REQUIRED, 'Path to load fixtures from');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $path = $input->getArgument('path');
+        $start = microtime(true);
+        $output->writeln('Loading fixtures');
+
         $loader = new DrupalLoader($this->typeManager);
-        $objectSet = $loader->loadData([
-            'node' => [
-                'article{1..10}' => [
-                    'type' => 'article',
-                    'field_body' => '<text()>',
-                ],
-            ],
-        ]);
+        $objectSet = new ObjectSet(new ParameterBag(), new ObjectBag());
+        foreach ($this->fixtureFiles($path) as $file) {
+            $output->writeln('File: ' . $file);
+            $objectSet = $loader->loadFile($file, $objectSet->getParameters(), $objectSet->getObjects());
+        }
+
+        foreach ($objectSet->getObjects() as $object) {
+            $object->save();
+            $output->write('.');
+        }
+
+        $output->writeln(PHP_EOL);
+        $output->writeln(sprintf(
+            'Loaded fixtures in %ss',
+            number_format(microtime(true) - $start, 2)
+        )); 
+    }
+
+    private function fixtureFiles(string $path): array
+    {
+        if (false === file_exists($path)) {
+            throw new InvalidArgumentException(sprintf(
+                'File "%s" does not exist',
+                $path
+            ));
+        }
+
+        if (is_file($path)) {
+            return [ $path ];
+        }
+
+        $files = Finder::create()
+            ->in($path)
+            ->name('*.yml')
+            ->name('*.php')
+            ->files();
+
+        return iterator_to_array($files);
     }
 }

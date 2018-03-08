@@ -11,7 +11,8 @@
     ],
     "require": {
         "nelmio/alice": "^3.0",
-        "drupal/core": "^8.4"
+        "drupal/core": "^8.4",
+        "symfony/finder": "^2.6"
     },
     "autoload": {
         "psr-4": {
