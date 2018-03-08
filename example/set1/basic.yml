@@ -1,0 +1,7 @@
+node:
+    page{1..10}:
+        type: page
+        title: <sentence()>
+        body: <text()>
+
+

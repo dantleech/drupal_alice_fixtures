@@ -1,0 +1,5 @@
+node:
+    article{1..10}:
+        type: article
+        title: [ <name()> ]
+        body: <text()>

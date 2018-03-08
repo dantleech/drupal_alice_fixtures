@@ -15,6 +15,7 @@ use Nelmio\Alice\ObjectSet;
 use Nelmio\Alice\ObjectBag;
 use Nelmio\Alice\ParameterBag;
 use InvalidArgumentException;
+use Symfony\Component\Console\Input\InputOption;
 
 class LoadFixturesCommand extends Command
 {
@@ -33,11 +34,14 @@ class LoadFixturesCommand extends Command
     {
         $this->setName('alice:load-fixtures');
         $this->addArgument('path', InputArgument::REQUIRED, 'Path to load fixtures from');
+        $this->addOption('purge', null, InputOption::VALUE_NONE, 'Purge existing entities before loading the fixtures');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $path = $input->getArgument('path');
+        $doPurge = $input->getOption('purge');
+
         $start = microtime(true);
         $output->writeln('Loading fixtures');
 
@@ -47,6 +51,11 @@ class LoadFixturesCommand extends Command
             $output->writeln('File: ' . $file);
             $objectSet = $loader->loadFile($file, $objectSet->getParameters(), $objectSet->getObjects());
         }
+
+        if ($doPurge) {
+            (new EntityPurger())->purge($objectSet);
+        }
+
 
         foreach ($objectSet->getObjects() as $object) {
             $object->save();
