@@ -2,6 +2,6 @@ php:
     build: .
     volumes: 
         - .:/var/www/html/modules/dtl_alice_fixtures
-          #- ./vendor/nelmio/alice:/var/www/html/vendor/nelmio/alice
+        - ./vendor/nelmio/alice:/var/www/html/vendor/nelmio/alice
     ports:
         - 8085:80
