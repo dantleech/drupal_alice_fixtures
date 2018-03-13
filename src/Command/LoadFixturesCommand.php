@@ -16,6 +16,7 @@ use Nelmio\Alice\ObjectBag;
 use Nelmio\Alice\ParameterBag;
 use InvalidArgumentException;
 use Symfony\Component\Console\Input\InputOption;
+use Drupal\drupal_alice_fixtures\Alice\EntityPurger;
 
 class LoadFixturesCommand extends Command
 {

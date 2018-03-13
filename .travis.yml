@@ -7,10 +7,10 @@ services:
     - docker
 
 before_script:
+      # run composer _in_ the host, for FUN
+    - composer install
     - docker-compose build
     - docker-compose run php php composer.phar require nelmio/alice "^3.0"
 
-      # run composer _in_ the host, for FUN
-    - composer install
 script:
-    - docker-compose run php ./vendor/bin/drupal alice:load-fixtures  --verbose  modules/dtl_alice_fixtures/example/set1 --purge
+    - docker-compose run php ./vendor/bin/drupal alice:load-fixtures  --verbose  modules/drupal_alice_fixtures/example/set1 --purge
