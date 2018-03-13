@@ -1,7 +1,7 @@
 php:
     build: .
     volumes: 
-        - .:/var/www/html/modules/dtl_alice_fixtures
+        - .:/var/www/html/modules/drupal_alice_fixtures
         - ./vendor/nelmio/alice:/var/www/html/vendor/nelmio/alice
     ports:
         - 8085:80

@@ -1,5 +1,5 @@
 {
-    "name": "dantleech/drupal-alice-fixtures",
+    "name": "dantleech/drupal_alice_fixtures",
     "description": "Drupal Integration for Alice fixture generator",
     "type": "drupal-module",
     "license": "MIT",
@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Drupal\\dtl_alice_fixtures\\": "src/"
+            "Drupal\\drupal_alice_fixtures\\": "src/"
         }
     }
 }

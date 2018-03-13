@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dtl_alice_fixtures\Command;
+namespace Drupal\drupal_alice_fixtures\Command;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -8,7 +8,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\node\Entity\Node;
 use Nelmio\Alice\Loader\NativeLoader;
-use Drupal\dtl_alice_fixtures\Alice\DrupalLoader;
+use Drupal\drupal_alice_fixtures\Alice\DrupalLoader;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Finder\Finder;
 use Nelmio\Alice\ObjectSet;

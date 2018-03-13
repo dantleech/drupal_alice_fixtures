@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dtl_alice_fixtures\Command;
+namespace Drupal\drupal_alice_fixtures\Command;
 
 use Nelmio\Alice\ObjectSet;
 

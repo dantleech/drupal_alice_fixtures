@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dtl_alice_fixtures\Alice;
+namespace Drupal\drupal_alice_fixtures\Alice;
 
 use Nelmio\Alice\Generator\Instantiator\Chainable\AbstractChainableInstantiator;
 use Nelmio\Alice\FixtureInterface;

@@ -1,0 +1,8 @@
+services:
+  drupal_alice_fixtures.console.command:
+    class: Drupal\drupal_alice_fixtures\Command\LoadFixturesCommand
+    arguments:
+        - "@entity_type.manager"
+    tags: 
+        - { name: drupal.command }
+
