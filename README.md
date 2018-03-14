@@ -1,7 +1,7 @@
 Generative Fixtures for Drupal
 ==============================
 
-[![Build Status](https://travis-ci.org/dantleech/drupal-alice-fixtures.svg?branch=master)](https://travis-ci.org/dantleech/drupal-alice-fixtures)
+[![Build Status](https://travis-ci.org/dantleech/drupal_alice_fixtures.svg?branch=master)](https://travis-ci.org/dantleech/drupal_alice_fixtures)
 
 This is just a thin integration of [Alice](https://github.com/nelmio/alice)
 with Drupal (console), check out that documentation to find out more.
